@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: monetary
+Version: 1.0.3
+Summary: Currency Convert
+Home-page: https://github.com/CurrencyClub/monetary
+Author: Hackathon
+Author-email: kimi.huang@brightcells.com
+License: UNKNOWN
+Keywords: Currency Monetary Convert
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+
+========
+monetary
+========
+
+Currency Convert
+
+Installation
+============
+
+::
+
+    pip install monetary
+
+
+Usage
+=====
+
+::
+
+    import monetary
+
+    # Exchange Cent & Dollar
+    monetary.cent(dollar, rate=100, cast_func=int)
+    monetary.dollar(cent, rate=100, cast_func=float, ndigits=None)
+
+    # Mul & Div
+    monetary.mul(multiplicand, multiplicator, cast_func=float)
+    monetary.div(dividend, divisor, cast_func=float, ndigits=None)
+
+
+

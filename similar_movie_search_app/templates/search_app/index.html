@@ -1,0 +1,109 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Similar Movie Finder</title>
+
+    <!-- Bootstrap core CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'search_app/static.css'%}" rel="stylesheet">
+  </head>
+  <body>
+
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Similar Movies</h1>
+      <p class="lead text-muted">Get the top recommendations for your query!</p>
+      <form method="POST">
+      <div class="input-group mb-3">
+        {% csrf_token %}
+          <input type="text" name = "searchbar" placeholder="enter movie name and year eg: deadpool 2016" class="form-control" aria-label="Password">
+      </div>
+      <p>
+        <button href="#"  type = "submit"  name = "submit" value = "search" class="btn btn-primary my-2">Movie Search</button>
+        <button href="#"  type = "submit"  name = "submit" value= "lucky" class="btn btn-primary my-2">feeling lucky</button>
+      </p>
+       </form>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container ">
+      <div class="row">
+
+        {% for movie in movies %}
+          <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="120" height="450" src="{{movie.poster_path}}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"></img>
+            <div class="card-body">
+              <p class="card-text">{{movie.title}}</p>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a type="button" href="{{movie.url}}" name = "view" class="btn btn-sm btn-outline-secondary">View</a>
+                </div>
+                <details> <summary>Read more</summary> <p>{{movie.overview}}
+                </p></details>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    
+          <div class="col-md-4">
+         
+
+              <div class="d-flex justify-content-between align-items-center">
+                
+                <div class="d-flex justify-content-between align-items-center">
+
+
+                   
+                    <div class="d-flex justify-content-between align-items-center">
+
+
+
+  
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+</body>
+</html>
